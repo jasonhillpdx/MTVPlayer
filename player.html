@@ -1,0 +1,35 @@
+<html>
+<div id="player"></div>
+<script>
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+     loadPlaylist:{
+        listType:'playlist',
+        list: ['iPUmE-tne5U','7_tmeHCO1IM','h3CmO-lCtos','uq-gYOrU8bA','Zi_XLOBDo_Y'],
+        index:parseInt(0),
+        suggestedQuality:'small'
+     },
+      events: {
+        'onReady': onPlayerReady
+        
+      }
+    });
+  }
+  function onPlayerReady(event) {
+    event.target.loadPlaylist(['iPUmE-tne5U','7_tmeHCO1IM','h3CmO-lCtos','uq-gYOrU8bA','Zi_XLOBDo_Y']);
+    setTimeout(setShuffleFunction, 1000);
+  }
+  
+  function setShuffleFunction(){
+    player.setShuffle(true);
+  }
+  
+</script>
+</html>
